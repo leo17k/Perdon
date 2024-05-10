@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css2.css">
+  <title>Hola perdon</title>
+</head>
+<body>
+<div id="texto">
+    <p>¡Hola Shara perdoname!</p>
+</div>
+
+<div id="botones">
+    <button onclick="mostrarTexto()"><span>Texto</span></button>
+    <button onclick="mostrarImagen()" id="botonImagen" class="contenedor"><span>Imagen</span></button>
+    <button onclick="cerrarImagen()" id="botonCerrar" style="display: none;"><span>Cerrar</span></button>
+    <img src="1.jpg" id="imagen" style="display: none;">
+</div>
+
+<div id="texto2" style="display: none;">
+    <h2 id="titulo">No puedo estar así contigo</h2>
+    <p>Querida Shara,</p>
+    <p>Quiero disculparme sinceramente por haber lastimado tus sentimientos con mi actitud orgullosa. Reconozco que mi comportamiento estuvo fuera de lugar y lamento profundamente haber causado dolor con mis acciones. Mi orgullo nubló mi juicio y me impidió ver cómo mis palabras o acciones podrían afectarte.</p>
+    <p>Me duele saber que te lastimé, y desearía poder retroceder el tiempo para actuar de manera diferente. Aprecio mucho tu presencia en mi vida y el valor que tienes para mí. Aprender de mis errores es un proceso en el que estoy comprometido, y estoy dispuesto a trabajar en mí mismo para mejorar como persona.</p>
+    <p>Espero que puedas perdonarme y que podamos superar juntos esta situación. Valoró nuestra relación y deseo reparar el daño causado. Estoy aquí para escucharte y aprender de esta experiencia.</p>
+    <p>Con humildad y sinceridad, Cesar</p>
+</div>
+
+
+<div id="sidebar" style="width: 200px; height: 100%; background-color: lightgray; position: fixed; top: 0; right: -200px; transition: right 0.3s;">
+    <h3>Recuerdos</h3>
+    
+    <img src="13.jpg" style="width: 100%;">
+
+    <img src="11.jpg" style="width: 100%;">
+
+        <ul>
+            <li><a <a href="#" id ="openGallery">Ver presentación</a></a></li>
+        </ul>
+</div>
+
+<button2 id="mostrarSidebar" class="boton-sidebar">|||</button2>
+
+
+
+
+
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img id="img01" class="modal-content">
+  <button4 id="prev">Anterior</button4>
+  <button4 id="next">Siguiente</button4>
+</div>
+
+<script>
+var images = ["13.jpg", "12.jpg", "11.jpg", "10.jpg", "9.jpg", "8.jpg", "7.jpg", "6.jpg", "5.jpg"]; // Array con las rutas de las imágenes
+var currentIndex = 0; // Índice de la imagen actual
+
+document.getElementById("openGallery").addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    
+    modal.style.display = "block";
+    modalImg.src = images[currentIndex];
+    
+    // Botón para avanzar en la galería
+    document.getElementById("next").addEventListener("click", function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImg.src = images[currentIndex];
+    });
+    
+    // Botón para retroceder en la galería
+    document.getElementById("prev").addEventListener("click", function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImg.src = images[currentIndex];
+    });
+    
+    // Cierra el modal al hacer clic en la 'x'
+    document.getElementsByClassName("close")[0].addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+});
+</script>
+
+<script src="js2.js"></script>
+</body>
+</html>
